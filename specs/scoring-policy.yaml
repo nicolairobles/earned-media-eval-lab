@@ -1,0 +1,61 @@
+# Scoring policy for earned-media measurement.
+# Weights compose the client-facing earned_media_score from component scores.
+# The score is deliberately conservative: penalties subtract, they never add.
+
+weights:
+  similarity: 0.40
+  entity_match: 0.25
+  source_quality: 0.15
+  timeliness: 0.10
+  evidence: 0.10
+
+penalties:
+  duplicate: 0.50          # applied when article is a near-duplicate of a higher-ranked one
+  low_evidence: 0.15       # applied when no strong evidence snippet was found
+
+confidence_bands:
+  high: 0.70
+  medium: 0.45
+  # below medium is low
+
+timeliness:
+  pickup_window_days: 14   # full credit inside window
+  stale_after_days: 45     # zero credit after this
+
+duplicate_detection:
+  shingle_size: 5
+  jaccard_threshold: 0.55
+
+source_quality:
+  default: 0.5
+  domains:
+    reuters.com: 1.0
+    techcrunch.com: 0.95
+    theverge.com: 0.9
+    wsj.com: 1.0
+    bloomberg.com: 1.0
+    industrywire-daily.com: 0.7
+    metrobusinessjournal.com: 0.75
+    cloudsector-news.com: 0.7
+    healthtech-observer.com: 0.75
+    retaildive-weekly.com: 0.7
+    newsblast-aggregator.net: 0.15
+    press-echo-network.info: 0.1
+    trendfeed-syndicate.biz: 0.1
+
+retrieval:
+  bm25_top_k: 30
+  bm25_k1: 1.5
+  bm25_b: 0.75
+
+llm:
+  model: gemini-2.0-flash
+  # Free-tier pricing assumption used only for the cost model when the paid
+  # tier would apply. USD per 1M tokens.
+  input_usd_per_1m_tokens: 0.10
+  output_usd_per_1m_tokens: 0.40
+  embedding_usd_per_1m_tokens: 0.15
+
+cost_model:
+  monthly_release_volume: 14000
+  human_review_usd_per_case: 0.85

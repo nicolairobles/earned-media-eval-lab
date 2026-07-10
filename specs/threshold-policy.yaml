@@ -1,0 +1,40 @@
+# Threshold routing policy.
+# Routes decide what a client can see. Conservative by design:
+# a high similarity score alone is never sufficient for auto-accept.
+
+routes:
+  auto_accept:
+    min_earned_media_score: 0.65
+    min_entity_match_score: 0.60
+    min_evidence_score: 0.50
+    disallow_duplicates: true
+  needs_review:
+    min_earned_media_score: 0.40
+  reject:
+    # anything below needs_review floor
+    max_earned_media_score: 0.40
+
+suppress_conditions:
+  - missing_evidence          # no evidence snippet could be extracted
+  - missing_metadata          # url, title, or outlet missing
+  - duplicate_without_dedup   # duplicate that was not deduplicated
+  - overclaim_detected        # agent or gate flagged overclaiming language
+  - missing_cost_telemetry    # run lacks cost accounting
+
+hard_blocks:
+  - id: HB-1
+    rule: No result below the quality floor may appear in a client-facing report.
+  - id: HB-2
+    rule: No score may appear without URL, title, outlet, and an evidence snippet.
+  - id: HB-3
+    rule: No generated summary may claim pickup unless label and threshold support it.
+  - id: HB-4
+    rule: Near-duplicate articles cannot count as separate earned-media wins.
+  - id: HB-5
+    rule: Any run missing cost telemetry is not production-ready.
+
+agent_review:
+  # The borderline-review agent only runs on pairs routed to needs_review.
+  enabled: true
+  max_pairs_per_release: 10
+  promote_to_accept_requires: high   # agent confidence needed to promote

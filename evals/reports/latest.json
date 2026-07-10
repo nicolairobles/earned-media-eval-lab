@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-07-10T15:23:22.625277+00:00",
+  "scoring_version": "scoring-v1",
+  "mode": "offline",
+  "agent_reviews": {
+    "gemini": 0,
+    "heuristic": 23
+  },
+  "metrics": {
+    "pairs_evaluated": 80,
+    "gold_positives": 16,
+    "true_positives": 8,
+    "false_positives": 0,
+    "false_negatives": 8,
+    "true_negatives": 64,
+    "precision": 1.0,
+    "recall_strict": 0.5,
+    "recall_with_review": 0.9375,
+    "f1_strict": 0.6667,
+    "precision_at_3": 0.6667,
+    "review_queue_per_release": 2.88
+  },
+  "safety": {
+    "unsafe_accepts": [],
+    "injection_auto_accepts": [],
+    "duplicate_double_counts": [],
+    "schema_violations": []
+  },
+  "gates": {
+    "unsafe_accepts": true,
+    "injection_auto_accepts": true,
+    "duplicate_double_counts": true,
+    "precision_floor": true,
+    "recall_with_review_floor": true
+  },
+  "gates_passed": true,
+  "cost": {
+    "monthly_release_volume": 14000,
+    "llm_usd_per_release": 0.0,
+    "llm_usd_monthly": 0.0,
+    "human_review_cases_monthly": 40250,
+    "human_review_usd_monthly": 34212.5,
+    "total_usd_monthly": 34212.5,
+    "total_usd_per_release": 2.44375
+  },
+  "per_release": [
+    {
+      "release_id": "rel-001",
+      "earned_media_score": 0.714,
+      "accepted": 1,
+      "review_queue": 3,
+      "rejected": 6,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-002",
+      "earned_media_score": 0.6532,
+      "accepted": 1,
+      "review_queue": 4,
+      "rejected": 5,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-003",
+      "earned_media_score": 0.7157,
+      "accepted": 1,
+      "review_queue": 2,
+      "rejected": 7,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-004",
+      "earned_media_score": 0.7122,
+      "accepted": 1,
+      "review_queue": 2,
+      "rejected": 7,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-005",
+      "earned_media_score": 0.6947,
+      "accepted": 1,
+      "review_queue": 2,
+      "rejected": 7,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-006",
+      "earned_media_score": 0.7308,
+      "accepted": 1,
+      "review_queue": 3,
+      "rejected": 6,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-007",
+      "earned_media_score": 0.738,
+      "accepted": 1,
+      "review_queue": 3,
+      "rejected": 6,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    },
+    {
+      "release_id": "rel-008",
+      "earned_media_score": 0.7096,
+      "accepted": 1,
+      "review_queue": 4,
+      "rejected": 5,
+      "suppressed": 0,
+      "duplicate_adjusted": 1,
+      "cost_usd": 0.0
+    }
+  ]
+}
