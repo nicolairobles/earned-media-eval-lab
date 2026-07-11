@@ -22,6 +22,7 @@ COPY --from=web /web/out apps/web/out
 RUN useradd -m -u 1000 user && chown -R user /app
 USER user
 ENV STATIC_DIR=/app/apps/web/out
+ENV APP_ROOT=/app
 EXPOSE 7860
 
 # Bind to the platform-injected PORT (Render) with 7860 as the local default

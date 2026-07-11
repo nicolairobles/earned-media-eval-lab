@@ -1,12 +1,16 @@
 from __future__ import annotations
 
 import functools
+import os
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-ROOT = Path(__file__).resolve().parents[2]
+# In the repo's src layout this resolves to the repo root. When the package is
+# pip-installed (e.g. in Docker) it resolves into site-packages, so deployments
+# must set APP_ROOT to the directory holding specs/, data/, and evals/.
+ROOT = Path(os.environ.get("APP_ROOT", Path(__file__).resolve().parents[2]))
 SPECS_DIR = ROOT / "specs"
 DATA_DIR = ROOT / "data" / "fixtures"
 

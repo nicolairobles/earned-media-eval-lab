@@ -1,5 +1,7 @@
 # earned-media-eval-lab
 
+Live demo: https://earned-media-eval-lab.onrender.com (free tier, first request after idle can take up to a minute while the service wakes)
+
 A production-shaped AI evaluation workbench for earned-media measurement.
 Given a press release and candidate news articles, it scores each pair,
 deduplicates syndicated copies, routes every result through threshold
