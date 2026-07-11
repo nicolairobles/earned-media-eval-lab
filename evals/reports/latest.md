@@ -1,8 +1,8 @@
 # Eval Report
 
-- Generated: 2026-07-10T15:23:22.625277+00:00
+- Generated: 2026-07-11T01:10:15.216693+00:00
 - Scoring version: scoring-v1
-- Mode: offline (agent reviews: {'gemini': 0, 'heuristic': 23})
+- Mode: online (agent reviews: {'gemini': 0, 'heuristic': 23})
 - Gates passed: YES
 
 ## Classification

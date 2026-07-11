@@ -19,10 +19,10 @@ COPY data/ data/
 COPY evals/ evals/
 COPY --from=web /web/out apps/web/out
 
-# Hugging Face Spaces runs as user 1000 and expects port 7860
 RUN useradd -m -u 1000 user && chown -R user /app
 USER user
 ENV STATIC_DIR=/app/apps/web/out
 EXPOSE 7860
 
-CMD ["uvicorn", "earned_media.api.main:app", "--host", "0.0.0.0", "--port", "7860"]
+# Bind to the platform-injected PORT (Render) with 7860 as the local default
+CMD ["sh", "-c", "uvicorn earned_media.api.main:app --host 0.0.0.0 --port ${PORT:-7860}"]
